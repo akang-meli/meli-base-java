@@ -2,6 +2,7 @@ package ar.com.meli.libreria;
 
 public  class Libro {
 
+    boolean alquilado;
     String editorial;
     String titulo;
 
@@ -10,5 +11,11 @@ public  class Libro {
         this.titulo = titulo;
     }
 
+    public String getTitulo() {
+        return this.titulo;
+    }
 
+    public String getNombre() {
+        return this.getTitulo();
+    }
 }

@@ -6,17 +6,17 @@ import java.util.function.Predicate;
 
 public class Alquiler {
 
-    String nombre;
+    Alquilable alquilable;
     Date fechaAquiler;
     Date fechaDevolucion;
 
 
     public String getNombre() {
-        return this.nombre;
+        return this.alquilable.getNombre();
     }
 
-    public Alquiler(String nombre, Date fechaDevolucion) {
-        this.nombre = nombre;
+    public Alquiler(Alquilable alquilable, Date fechaDevolucion) {
+        this.alquilable = alquilable;
         this.fechaAquiler = Date.from(Instant.now());
         this.fechaDevolucion = fechaDevolucion;
     }

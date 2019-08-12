@@ -23,7 +23,8 @@ public class LibreriaTest {
         Libreria libreria = Libreria.getInstance();
         Assertions.assertThat(libreria).isNotNull();
         Assertions.assertThat(libreria.getAquileres()).isEmpty();
-        Alquiler alquiler = new Alquiler("Ironman", Date.from(Instant.now()));
+        Alquilable alquilable = new Novela("Pepito", "Harry Potter");
+        Alquiler alquiler = new Alquiler(alquilable, Date.from(Instant.now()));
         libreria.addAquiler(alquiler);
         Assertions.assertThat(libreria.getAquileres().size()).isEqualTo(1);
         libreria.deleteInstance();
@@ -32,7 +33,8 @@ public class LibreriaTest {
     @Test
     public void buscarAlquiler() {
         Libreria libreria = Libreria.getInstance();
-        Alquiler alquiler = new Alquiler("Harry Potter", Date.from(Instant.now()));
+        Alquilable alquilable = new Novela("Pepito", "Harry Potter");
+        Alquiler alquiler = new Alquiler(alquilable, Date.from(Instant.now()));
         libreria.addAquiler(alquiler);
 
         // Encuentra el alquiler con el mismo nombre
@@ -50,25 +52,13 @@ public class LibreriaTest {
         libreria.deleteInstance();
     }
 
-
     @Test
     public void agregarLibro(){
         Libreria libreria = Libreria.getInstance();
-        Libro libro = new Libro("PEPITO","Harry Potter");
+        Libro libro = new Libro("Pepito","Harry Potter");
         libreria.addLibro(libro);
         Assertions.assertThat(libreria.getLibros().size()).isEqualTo(1);
         libreria.deleteInstance();
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
